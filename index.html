@@ -26,9 +26,12 @@
 
       }
     </style>
+  
 
     </head>
     <body>
+
+
 
     <div class="intro-header">
         <div class="intro-background">
@@ -38,27 +41,74 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                
-                       <img src="imgs/screenshot_framed-2.png" class="logo">
-                        <style type="text/css">
-                        .container {position: relative;}
-                        .logo {position:absolute;
-                        max-width: 60%;
-                        height: auto;
-                    top: 30%;
-                     left: 50%;
-                     /* bring your own prefixes */
-                     transform: translate(-50%, -30%);}
-
-                        </style>
-                        
                     
-                 
+                        <img src="imgs/screenshot_framed-2.png" class="logo">
+                        <img src= "imgs/arrow.png" class = "image"> 
+
+                               <style type="text/css">
+                               .container {position: relative;}
+                               .logo {position:absolute;
+                               max-width: 60%;
+                               height: auto;
+                               top: 30%;
+                                left: 50%;
+                                /* bring your own prefixes */
+                                transform: translate(-50%, -30%);
+                                z-index: 2;}
+                                .image {
+                                    z-index: 3;
+                                    position: absolute; 
+                                    max-width: 30%;
+                                    width: 3%;
+                                    top: 32%;
+                                    left:59%;
+                                }
+                                #col-lg-12 {
+                                    z-index: 3;
+                                    position: absolute;
+                                }
+                                .google {
+                                    position: absolute;
+                                    top: 90%;
+                                    width: 10%;
+                                    left:50%;
+                                    transform: translate(-50%, -90%);
+                                }
+                                
+                               </style>
+                                               
+                      
+                        <script> 
+                        var img = $('.image');
+                        if(img.length > 0){
+                            var offset = img.offset();
+                            function mouse(evt){
+                                var center_x = (offset.left) + (img.width()/2);
+                                var center_y = (offset.top) + (img.height()/2);
+                                var mouse_x = evt.pageX; var mouse_y = evt.pageY;
+                                var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                                var degree = (radians * (180 / Math.PI) * -1) + 180; 
+                                img.css('-moz-transform', 'rotate('+degree+'deg)');
+                                img.css('-webkit-transform', 'rotate('+degree+'deg)');
+                                img.css('-o-transform', 'rotate('+degree+'deg)');
+                                img.css('-ms-transform', 'rotate('+degree+'deg)');
+                            }
+                            $(document).mousemove(mouse);
+                        }
+                        </script>
+
+
+
+
+                    </div>
+                    
                 </div>
             </div>
         </div>
+        <a href ="https://play.google.com/store/apps/details?id=mohammad.adib.foodcompass"> <img src="imgs/google_appstore.png" class ="google" > </a>
         
     </div>
+        
         
         
        
